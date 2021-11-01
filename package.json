@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/QuentinHnilica/web-dev-group-finder.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -18,6 +19,10 @@
   },
   "homepage": "https://github.com/QuentinHnilica/web-dev-group-finder#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "mysql2": "^2.3.2",
+    "sequelize": "^6.8.0"
   }
 }
