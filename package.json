@@ -1,0 +1,28 @@
+{
+  "name": "web-dev-group-finder",
+  "version": "1.0.0",
+  "description": "Allows developers of all skill levels to find a group/project to work on to show their skills, or even strengthen them.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuentinHnilica/web-dev-group-finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QuentinHnilica/web-dev-group-finder/issues"
+  },
+  "homepage": "https://github.com/QuentinHnilica/web-dev-group-finder#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "mysql2": "^2.3.2",
+    "sequelize": "^6.8.0"
+  }
+}
