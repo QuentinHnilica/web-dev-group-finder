@@ -4,15 +4,15 @@ const apiRoutes = require('./api');
 router.use('/api', apiRoutes);
 
 router.get('/', async(req, res) => {
-    res.send('HOMEPAGE');
+    res.render('splash');
 });
 
 router.get('/login', async(req, res) => {
-    res.send('LOGIN');
+    res.render('login');
 });
 
 router.get('/signup', async(req, res) => {
-    res.send('SIGN UP');
+    res.render('signUp');
 });
 
 module.exports = router;
