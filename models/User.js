@@ -37,6 +37,10 @@ User.init(
         isAdmin: {
             type: DataTypes.BOOLEAN,
             defaultValue: 0,
+        }, 
+        technologies: {
+            type: DataTypes.STRING,
+            allowNull: false,
         }
     },
     {
