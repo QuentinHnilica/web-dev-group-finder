@@ -1,0 +1,8 @@
+[
+    {
+        "PostId": 1,
+        "GroupId": 1,
+        "UsersID": 2,
+        "PostContent": "This is my first test post."
+    }
+]

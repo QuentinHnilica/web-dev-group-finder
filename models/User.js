@@ -36,11 +36,15 @@ User.init(
         },
         isAdmin: {
             type: DataTypes.BOOLEAN,
-            defaultValue: 0,
+            defaultValue: false,
         }, 
         technologies: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        affiliatedGroup:{
+            type: DataTypes.INTEGER,
+            allowNull: true
         }
     },
     {
