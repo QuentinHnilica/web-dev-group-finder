@@ -18,7 +18,7 @@ Project.init(
         },
         technologies: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         difficulty: {
             type: DataTypes.INTEGER,
@@ -28,7 +28,23 @@ Project.init(
             }
         },
         description: {
-            type: DataTypes.TEXT
+            type: DataTypes.STRING
+        },
+        adminID: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        techNeeded:{
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        socialLink: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        userIds: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     },
     {
