@@ -1,18 +1,24 @@
-<div class="px-3 py-4 my-4 text-center">
+<form class="px-3 py-4 my-4">
     <div class="container">
-        <div class="row justify-content-md-center">
+      <div class="row text-center">
         <h1 class="display-5 fw-bold">
-            Group Finder
+          Log In
         </h1>
-        </div>
-    
-        <div class="justify-content-md-center m-5">
-            <h2 class="bg-primarydisplay-4  p-3" style="color: snow;">Username or Email</h2>
-            <input type="text" class="form-control bg-secondary display-4" style = "color:snow;">
-        </div>
-        <div class="justify-content-md-center m-5">
-            <h2 class="bg-primary display-4 p-3"  style="color: snow;">Password</h2>
-            <input type="text" class="form-control bg-secondary display-4" style = "color:snow;">
-        </div>
+      </div>
     </div>
-</div>
+    <div class="container">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input class="form-control">
+      </div> 
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control">
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input">
+        <label class="form-check-label">Remember Me</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
