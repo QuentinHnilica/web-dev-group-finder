@@ -1,0 +1,14 @@
+[
+    {
+        "username": "QuentinHnilica",
+        "email": "FakeEmail@Yahoo.com",
+        "password": "Pass123",
+        "isAdmin": true
+    },
+    {
+        "username": "NotQuentin",
+        "email": "FakeEmil@Yahoo.com",
+        "password": "Pass1234",
+        "isAdmin": false
+    }
+]
