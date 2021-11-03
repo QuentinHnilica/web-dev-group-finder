@@ -6,6 +6,10 @@ class Project extends Model {}
 Project.init(
     {
         //Model attributes
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -23,6 +27,9 @@ Project.init(
                 max: 5,
             }
         },
+        description: {
+            type: DataTypes.TEXT
+        }
     },
     {
         sequelize,
