@@ -2,7 +2,6 @@
     {
         "name": "Test Group",
         "id": 1,
-        "technologies": "JS",
         "difficulty": 1,
         "description": "This is just a test",
         "adminID": 1234

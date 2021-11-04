@@ -16,10 +16,6 @@ Project.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        technologies: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         difficulty: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -33,14 +29,6 @@ Project.init(
         adminID: {
             type: DataTypes.INTEGER,
             allowNull: false
-        },
-        techNeeded:{
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        socialLink: {
-            type: DataTypes.STRING,
-            allowNull: true
         },
     },
     {
