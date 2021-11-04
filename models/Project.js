@@ -42,10 +42,6 @@ Project.init(
             type: DataTypes.STRING,
             allowNull: true
         },
-        userIds: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        }
     },
     {
         sequelize,

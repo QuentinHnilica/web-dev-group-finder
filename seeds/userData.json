@@ -4,15 +4,13 @@
         "username": "QuentinHnilica",
         "email": "FakeEmail@Yahoo.com",
         "password": "Pass123",
-        "isAdmin": true,
-        "technologies": "JS"
+        "isAdmin": true
     },
     {
         "id": 2,
         "username": "NotQuentin",
         "email": "FakeEmil@Yahoo.com",
         "password": "Pass1234",
-        "isAdmin": false,
-        "technologies": "Node"
+        "isAdmin": false
     }
 ]
