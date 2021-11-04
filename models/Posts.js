@@ -1,43 +1,35 @@
 const { DataTypes, Model} = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Posts extends Model {}
 
-Project.init(
+Posts.init(
     {
-        //Model attributes
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        id: {
+        PostId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        difficulty: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                max: 5,
-            }
-        },
-        description: {
-            type: DataTypes.STRING
-        },
-        adminID: {
+        GroupId: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        UsersID: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        PostContent:{
+            type: DataTypes.STRING,
+            allowNull: false
+        }
     },
     {
         sequelize,
         timestamps: false,
         freezeTableNames: true,
         underscored: true,
-        modelName: 'project',
+        modelName: 'Posts',
     }
-);
-
-module.exports = Project;
+)
+module.exports = Posts;

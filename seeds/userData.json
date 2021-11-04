@@ -1,11 +1,13 @@
 [
     {
+        "id": 1,
         "username": "QuentinHnilica",
         "email": "FakeEmail@Yahoo.com",
         "password": "Pass123",
         "isAdmin": true
     },
     {
+        "id": 2,
         "username": "NotQuentin",
         "email": "FakeEmil@Yahoo.com",
         "password": "Pass1234",
