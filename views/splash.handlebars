@@ -10,9 +10,23 @@
       <p class="lead-mb-4">
         Here at Group Project Finder we aim to find the missing puzzle piece for your project. Whether it be musical, graphical, code, or testing you can find the right talent to get the job done.
       </p>
+
+      <script>
+        function login() {
+           var currLoc = window.location.href
+           var login = "login"
+           window.location.href = currLoc + login
+        }
+
+        function signUp(){
+          var currLoc = window.location.href
+          var login = "signUp"
+          window.location.href = currLoc + login
+        }
+    </script>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button class="btn btn-primary btn-lg px-4 gap-3" type="button">Log In</button>
-        <button class="btn btn-primary btn-lg px-4 gap-3" type="button">Sign Up</button>
+        <button class="btn btn-primary btn-lg px-4 gap-3" type="button" onclick="login()">Log In</button>
+        <button class="btn btn-primary btn-lg px-4 gap-3" type="button" onclick="signUp()">Sign Up</button>
       </div>
     </div>
 </div>
