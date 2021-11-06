@@ -5,7 +5,7 @@ router.use('/api', apiRoutes);
 
 router.get('/', async(req, res) => {
     if (req.session.logged_in == true){
-        res.render('findGroupMain')
+        res.render('findGroup')
     }
     else res.render('splash');
 });

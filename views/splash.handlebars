@@ -9,6 +9,15 @@
     </section>
 </nav>
 
+<script>
+  function login(){
+    window.location.href = window.location.href + 'login'
+  }
+  function signUp(){
+    window.location.href = window.location.href + 'signUp'
+  }
+</script>
+
 <div class="px-3 py-4 m-5 text-center border">
     <div class="container">
       <div class="row justify-content-md-center">
@@ -22,8 +31,9 @@
         Here at Group Project Finder we aim to find the missing puzzle piece for your project. Whether it be musical, graphical, code, or testing you can find the right talent to get the job done.
       </p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button class="btn bodyButtons btn-lg px-4 gap-3" type="button">Log In</button>
-        <button class="btn bodyButtons btn-lg px-4 gap-3" type="button">Sign Up</button>
+        <button class="btn bodyButtons btn-lg px-4 gap-3" type="button" onclick="login()">Log In</button>
+        <button class="btn bodyButtons btn-lg px-4 gap-3" type="button" onclick="signUp()">Sign Up</button>
       </div>
     </div>
 </div>
+
