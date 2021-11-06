@@ -59,6 +59,9 @@ body {
   .signUpCheck {
       padding-left: 4% !important;
   }
+  .groupMakerCheck {
+    padding-left: 3%;
+  }
   
   /* Hide the browser's default checkbox */
   .checkMarkContainer input {
