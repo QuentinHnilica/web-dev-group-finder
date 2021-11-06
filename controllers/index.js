@@ -1,14 +1,13 @@
 const router = require('express').Router();
 const apiRoutes = require('./api');
+const homeRoutes = require('./homeRoutes')
 
 router.use('/api', apiRoutes);
+router.use('/', homeRoutes)
 
-router.get('/', async(req, res) => {
-    if (req.session.logged_in == true){
-        res.render('findGroup')
-    }
-    else res.render('splash');
-});
+// router.get('/', async(req, res) => {
+//     res.render('findGroup')
+// });
 
 router.get('/login', async(req, res) => {
     res.render('login');
