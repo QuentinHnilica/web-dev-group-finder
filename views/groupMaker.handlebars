@@ -1,0 +1,93 @@
+
+<nav>
+    <section class = 'navbar d-flex justify-content-between py-4' id="nav">
+        <!-- holder for icon -->
+        <a></a>
+        <aside id = 'nav-button-holder' class = 'd-flex flex-row justify-content-end'>
+            <button class = 'me-5 btn navButtons'>Find Groups</button>
+            <button class = 'me-5 btn navButtons'>Sign In</button>
+        </aside>
+    </section>
+</nav>
+    
+<form class="px-3 py-4 m-4 border d-flex flex-column">
+    <div class="container">
+        <div class="row text-center">
+        <h1 class="display-5 fw-bold boxTextColor">
+            Make your Group
+        </h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="mb-3">
+            <label class="form-label boxTextColor">Group Name</label>
+            <input class="form-control">
+        </div>
+        <div>
+            <h2 class= "boxTextColor">Dificulty bar</h2>
+        </div>
+        <div class= "d-flex justify-content-between">
+            <label class = "boxTextColor">easy</label>
+            <label class = "boxTextColor">hard</label>
+        </div>
+        <div>
+            <input type="range" min="0" max="5" >
+        </div>
+        <div class="mb-3">
+            <label class="form-label boxTextColor">Project Description</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label class="form-label boxTextColor">Link name </label>
+            <input type="text" class="form-control"> 
+            <label class="form-label boxTextColor">Link address </label>
+            <input type="text" class="form-control"> 
+
+            <a></a>
+            <a></a>
+            <a></a>
+            <a></a>
+        </div>
+        
+        <div class="mb-3 form-check boxTextColor">
+            <div class = "d-flex m-3 flex-row ">
+                <div class="checkBox d-flex justify-content-evenly" style="width: 100%;">
+                    <label class="checkMarkContainer groupMakerCheck pe-3 ">HTML
+                        <input id = "HTML" type="checkbox">
+                        <span class="checkMark"></span>
+                    </label>
+                    <label  class="checkMarkContainer groupMakerCheck">CSS
+                        <input id="CSS" type="checkbox">
+                        <span class="checkMark"></span>
+                    </label>
+                    <label class="checkMarkContainer groupMakerCheck">JS
+                        <input id="JS" type="checkbox">
+                        <span class="checkMark "></span>
+                    </label>
+                    <label class="checkMarkContainer groupMakerCheck">Node
+                        <input id="Node" type="checkbox">
+                        <span class="checkMark "></span>
+                    </label>
+                    <label class="checkMarkContainer groupMakerCheck">express
+                        <input id="express" type="checkbox">
+                        <span class="checkMark "></span>
+                    </label>
+                    <label class="checkMarkContainer groupMakerCheck">MySQL
+                        <input id="MySQL" type="checkbox">
+                        <span class="checkMark "></span>
+                    </label>
+                    <label class="checkMarkContainer groupMakerCheck">Sequalize
+                        <input id="Sequalize" type="checkbox">
+                        <span class="checkMark "></span>
+                    </label>
+                    <label class="checkMarkContainer groupMakerCheck">HandleBars
+                        <input id="handlebars" type="checkbox">
+                        <span class="checkMark "></span>
+                    </label>
+                    
+
+                </div>
+        </div>
+        <button type="submit" class="btn bodyButtons">Submit</button>
+    </div>
+</form>
