@@ -1,25 +1,35 @@
-<form class="px-3 py-4 my-4 login_forum">
+<nav>
+    <section class = 'navbar d-flex justify-content-between py-4' id="nav">
+        <!-- holder for icon -->
+        <a></a>
+        <aside id = 'nav-button-holder' class = 'd-flex flex-row justify-content-end'>
+            <button class = 'me-5 btn navButtons'>Find Groups</button>
+            <button class = 'me-5 btn navButtons'>Sign In</button>
+        </aside>
+    </section>
+</nav>
+
+<form class="px-3 py-4 m-4 border">
     <div class="container">
       <div class="row text-center">
-        <h1 class="display-5 fw-bold">
+        <h1 class="display-5 fw-bold boxTextColor">
           Log In
         </h1>
       </div>
     </div>
     <div class="container">
       <div class="mb-3">
-        <label class="form-label">Username</label>
-        <input class="form-control" id="user-id">
+        <label class="form-label boxTextColor">Username</label>
+        <input class="form-control">
       </div> 
       <div class="mb-3">
-        <label class="form-label">Password</label>
-        <input type="password" class="form-control" id="password-input">
+        <label class="form-label boxTextColor">Password</label>
+        <input type="password" class="form-control">
       </div>
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input">
-        <label class="form-check-label">Remember Me</label>
+        <label class="form-check-label boxTextColor">Remember Me</label>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn bodyButtons">Submit</button>
     </div>
 </form>
-<script src="assets/js/login.js"></script>
