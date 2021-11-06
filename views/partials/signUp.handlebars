@@ -1,29 +1,42 @@
-<form class="px-3 py-4 my-4">
+<nav>
+    <section class = 'navbar d-flex justify-content-between py-4' id="nav">
+        <!-- holder for icon -->
+        <a></a>
+        <aside id = 'nav-button-holder' class = 'd-flex flex-row justify-content-end'>
+            <button class = 'me-5 btn navButtons'>Find Groups</button>
+            <button class = 'me-5 btn navButtons'>Sign In</button>
+        </aside>
+    </section>
+</nav>
+
+<form class="px-3 py-4 m-4 border">
     <div class="container">
         <div class="row text-center">
-        <h1 class="display-5 fw-bold">
+        <h1 class="display-5 fw-bold boxTextColor">
             Sign Up
         </h1>
         </div>
     </div>
     <div class="container">
         <div class="mb-3">
-            <label class="form-label">Create a Username</label>
+            <label class="form-label boxTextColor">Create a Username</label>
             <input class="form-control">
         </div>
         <div class="mb-3">
-            <label class="form-label">Email address</label>
+            <label class="form-label boxTextColor">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <div id="emailHelp" class="form-text boxTextColor">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
-            <label class="form-label">Password</label>
+            <label class="form-label boxTextColor">Password</label>
             <input type="password" class="form-control">
         </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input">
-            <label class="form-check-label">Remember Me</label>
+        <div class="mb-3 form-check boxTextColor">
+            <label class="checkMarkContainer signUpCheck">Remember Me
+                <input id = "rememberMe" type="checkbox">
+                <span class="checkMark"></span>
+            </label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn bodyButtons">Submit</button>
     </div>
 </form>
