@@ -5,10 +5,6 @@ const homeRoutes = require('./homeRoutes')
 router.use('/api', apiRoutes);
 router.use('/', homeRoutes)
 
-// router.get('/', async(req, res) => {
-//     res.render('findGroup')
-// });
-
 router.get('/login', async(req, res) => {
     res.render('login');
 });

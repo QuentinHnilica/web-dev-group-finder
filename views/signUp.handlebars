@@ -1,4 +1,4 @@
-<form class="px-3 py-4 m-4 border">
+<form class="px-3 py-4 m-4 border signup-form">
     <div class="container">
         <div class="row text-center">
         <h1 class="display-5 fw-bold boxTextColor">
@@ -9,16 +9,16 @@
     <div class="container">
         <div class="mb-3">
             <label class="form-label boxTextColor">Create a Username</label>
-            <input class="form-control">
+            <input class="form-control" id="user-name">
         </div>
         <div class="mb-3">
             <label class="form-label boxTextColor">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="email-signup" aria-describedby="emailHelp">
         <div id="emailHelp" class="form-text boxTextColor">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
             <label class="form-label boxTextColor">Password</label>
-            <input type="password" class="form-control">
+            <input type="password" class="form-control" id="password-signup">
         </div>
         <div class="mb-3 form-check boxTextColor">
             <label class="checkMarkContainer signUpCheck">Remember Me
@@ -29,3 +29,5 @@
         <button type="submit" class="btn bodyButtons">Submit</button>
     </div>
 </form>
+
+<script src="assets/js/signup.js"></script>

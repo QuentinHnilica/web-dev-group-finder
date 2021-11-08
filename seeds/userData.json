@@ -12,5 +12,12 @@
         "email": "FakeEmil@Yahoo.com",
         "password": "Pass1234",
         "isAdmin": false
+    },
+    {
+        "id": 3,
+        "username": "jo",
+        "email": "jo@mail.com",
+        "password": "1234",
+        "isAdmin": true
     }
 ]
