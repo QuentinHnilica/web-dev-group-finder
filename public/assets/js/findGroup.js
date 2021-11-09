@@ -26,7 +26,7 @@ const findGroupHandler = async (event) =>{
                         <!-- iconHolder -->
                         <a></a>
                     </div>
-                    <button class = "btn bodyButtons">View Group</button>
+                    <button class = "btn bodyButtons" formaction="/projects/${data[i].id}>View Group</button>
                 </div>
                 </section>
                 </div>`
