@@ -80,16 +80,13 @@ const findGroupHandler = async (currPage) =>{
         
         const insertPost = document.getElementById('postGroup')
             
-                <button class = "btn bodyButtons" formaction="/projects/${data[i].id}>View Group</button>
-                </div>
-                </section>
-                </div>`
-                $('#postGroup').append(groupPost)
-            }
-        })
-    }
-    else{
-        alert(response.statusText);
+            //     <button class = "btn bodyButtons" formaction="/projects/${data[i].id}>View Group</button>
+            //     </div>
+            //     </section>
+            //     </div>`
+            //     $('#postGroup').append(groupPost)
+            // }
+       //})
     }
     else{ //Search Logic
 
