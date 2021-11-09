@@ -2,5 +2,34 @@
     {
         "GroupId": 1,
         "Tech": "HTML5"
+    },
+    {
+        "GroupId": 2,
+        "Tech": "JS"
+    },
+    {
+        "GroupId": 3,
+        "Tech": "HTML5"
+    },
+    {
+        "GroupId": 4,
+        "Tech": "HTML5"
+    },
+    {
+        "GroupId": 5,
+        "Tech": "HTML5"
+    },
+    {
+        "GroupId": 6,
+        "Tech": "JS"
+    },
+    {
+        "GroupId": 7,
+        "Tech": "HTML5"
+    },
+    {
+        "GroupId": 8,
+        "Tech": "JS"
     }
+
 ]

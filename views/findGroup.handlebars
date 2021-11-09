@@ -15,7 +15,14 @@
     
 
         <div class="col-8"> <!-- Main Box-->
-        <div class="groupMainBorder" id="postGroup">
+        <div class="groupMainBorder">
+
+            <div id="postGroup">
+
+            </div>
+            <div id="navGroup">
+
+            </div>
             
     
         </div>
@@ -25,37 +32,41 @@
         <div class = "border">
             <div class = " d-flex input-group input-group-vertical m-3 midBg " style="width: 80%;" >
                 <input type="text" class = "form-control ">
-                <button class="btn bodyButtons">Search</button>
+                <button class="btn bodyButtons" id="searchGroup">Search</button>
             </div>
             <div class = "d-flex flex-column m-3">
-                <input type="range" min="1" max="5" >
-                <div class="checkBox">
-                    <label class="checkMarkContainer">HTML
-                        <input id = "HTML" type="checkbox">
-                        <span class="checkMark"></span>
+                <input type="range" min="1" max="5" id="difficulty">
+                <div class="checkBox" id='searchQuery'>
+                    <label class="checkMarkContainer">
+                        <p>HTML5</p>
+                        <input id = "theBox" type="checkbox">
+                        <span class="checkMark" id="isChecked"></span>
                     </label>
-                    <label  class="checkMarkContainer">CSS
-                        <input id="CSS" type="checkbox">
-                        <span class="checkMark"></span>
+                    <label  class="checkMarkContainer">
+                        <p>CSS</p>
+                        <input id="theBox" type="checkbox">
+                        <span class="checkMark" id="isChecked"></span>
                     </label>
-                    <label class="checkMarkContainer">JS
-                        <input id="JS" type="checkbox">
-                        <span class="checkMark"></span>
+                    <label class="checkMarkContainer">
+                        <p>JS</p>
+                        <input id="theBox" type="checkbox" >
+                        <span class="checkMark" ></span>
                     </label>
-                    <label class="checkMarkContainer">express
-                        <input id="express" type="checkbox">
-                        <span class="checkMark"></span>
+                    <label class="checkMarkContainer">
+                        <p>Express</p>
+                        <input id="theBox" type="checkbox">
+                        <span class="checkMark" id="isChecked"></span>
                     </label>
-                    <label class="checkMarkContainer">MySQL
-                        <input id="MySQL" type="checkbox">
-                        <span class="checkMark"></span>
+                    <label class="checkMarkContainer">
+                        <p>MySql</p>
+                        <input id="theBox" type="checkbox">
+                        <span class="checkMark" id="isChecked"></span>
                     </label>
-                    <label class="checkMarkContainer">HandleBars
-                        <input id="handlebars" type="checkbox">
-                        <span class="checkMark"></span>
+                    <label class="checkMarkContainer">
+                        <p>HandleBars</p>
+                        <input id="theBox" type="checkbox">
+                        <span class="checkMark" id="isChecked"></span>
                     </label>
-                    
-
                 </div>
             </div>
         </div>
