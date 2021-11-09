@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Project } = require('../../models');
-//match /api/projects/
+
+//matches /api/projects/
 router.get('/', async(req, res) =>{
     try{
     const projects = await Project.findAll()
@@ -9,5 +10,7 @@ router.get('/', async(req, res) =>{
         res.status(400).json(err);
     }
 })
+
+
 
 module.exports = router;

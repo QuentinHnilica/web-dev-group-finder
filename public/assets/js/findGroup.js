@@ -36,6 +36,7 @@ const findGroupHandler = async (currPage) =>{
                         <h3 class="boxTextColor">Group name</h3>
                         <p class="boxTextColor">${testVar}</p>
                     </div>
+
                     <!-- bottom of sub-box -->
                     <div class = "d-flex justify-content-between m-3">
                         <div>
@@ -79,6 +80,16 @@ const findGroupHandler = async (currPage) =>{
         
         const insertPost = document.getElementById('postGroup')
             
+                <button class = "btn bodyButtons" formaction="/projects/${data[i].id}>View Group</button>
+                </div>
+                </section>
+                </div>`
+                $('#postGroup').append(groupPost)
+            }
+        })
+    }
+    else{
+        alert(response.statusText);
     }
     else{ //Search Logic
 

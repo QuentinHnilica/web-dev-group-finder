@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../models");
+const { User, Project } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
@@ -28,6 +28,29 @@ router.get("login", (req, res) => {
     }
 
     res.render("login");
+});
+
+
+router.get('/projects/:id', async (req, res) => {
+
+    console.log(req.params.id);
+    try{
+        const projectData = await Project.findOne({
+            where: {
+                id: req.params.id
+            }
+        });
+
+        const project = projectData.get({ plain: true });
+        if (!projectData) {
+            res.status(404).json({ message: 'No project found with this id!' });
+            return;
+        };
+
+        res.render('group', project);
+    }catch(err) {
+        res.status(500).json(err);
+    }
 });
 
 module.exports = router;
