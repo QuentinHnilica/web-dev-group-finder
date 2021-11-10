@@ -131,4 +131,51 @@ router.delete('/removeTech/:id', async(req, res) => {
     }
 })
 
+router.delete('/removeGroup/:id', async(req, res) => {
+    try{
+        const deleted = await Project.destroy({
+            where:{
+                id: req.params.id
+            }
+        })
+        res.status(200).json(deleted)
+    }catch{
+        res.status(400).json(err)
+    }
+})
+
+router.delete('/removeLinks/:id', async(req, res) => {
+    try{
+        const deleted = await SocialLink.destroy({
+            where:{
+                GroupId: req.params.id
+            }
+        })
+        res.status(200).json(deleted)
+    }catch{
+        res.status(400).json(err)
+    }
+})
+
+router.post('/remakeGroup', async(req, res) => {
+    try{
+        const newGroup = await Project.create(req.body)
+        res.status(200).json(newGroup)
+
+    }catch{
+        res.status(400).json(err)
+    }
+})
+
+router.post('/updateLinks', async(req, res) => {
+    try{
+        console.log("?????")
+        const newLink = await SocialLink.create(req.body)
+        res.status(200).json(newLink)
+
+    }catch{
+        res.status(400).json("uh oh. didn't work")
+    }
+})
+
 module.exports = router;

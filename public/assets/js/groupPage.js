@@ -291,12 +291,12 @@ function closeMod(){
     document.getElementById('createGroup').style = "display: none;"
 }
 
-const updateGroupLinks = () =>{
+const updateGroupLinks = async () =>{
     let updatedGroupLinks = []
-    let link1 = {}
-    let link2 = {}
-    let link3 = {}
-    let link4 = {}
+    let link1 = {GroupId: part}
+    let link2 = {GroupId: part}
+    let link3 = {GroupId: part}
+    let link4 = {GroupId: part}
 
     
     if (link1Name.value == ''){
@@ -363,28 +363,91 @@ const updateGroupLinks = () =>{
     updatedGroupLinks.push(link3)
     updatedGroupLinks.push(link4)
 
+    for (let i = 0; i < updatedGroupLinks.length; i++){
+        if (updatedGroupLinks[i].name != ''){
+            const response = await fetch('/projects/updateLinks',{
+                method: "POST",
+                body: JSON.stringify(updatedGroupLinks[i]),
+                headers: { 'Content-Type': 'application/json' },
+            } )
+            if (response.ok){
+                console.log("Fin")
+            }
+            else{
+                alert(response.statusText)
+            }
+            console.log(updatedGroupLinks[i])
+        }
+        
+    }
+}
+
+const destroyLinks = async () => {
+    const response = await fetch('/projects/removeLinks/' + part,{
+        method: "DELETE"
+    })
+    if (response.ok){
+        console.log("deleted")
+    }
+    else{
+        alert(response.statusText)
+    }
+
+    updateGroupLinks()
 }
 
 const updateGroupInfo = async () =>{
-    let updatedGroupInfo = []
+    let updatedGroupInfo = {}
 
     if (groupName2.value == ''){
-        updatedGroupInfo.push(groupName2.placeholder)
+        updatedGroupInfo.name = groupName2.placeholder
     }
     else{
-        updatedGroupInfo.push(groupName2.value)
+        updatedGroupInfo.name = groupName2.value
     }
+
+    updatedGroupInfo.id = part
+
+    updatedGroupInfo.difficulty = groupDifficulty.value
 
     if (groupDisc.value == ''){
-        updatedGroupInfo.push(groupDisc.placeholder)
+        updatedGroupInfo.description = groupDisc.placeholder
     }
     else{
-        updatedGroupInfo.push(groupDisc.value)
+        updatedGroupInfo.description = groupDisc.value
     }
 
-    updatedGroupInfo.push(groupDifficulty.value)
+    updatedGroupInfo.adminID = groupAdmin
 
-    updateGroupLinks()
+    
+
+    const response = await fetch('/projects/remakeGroup',{
+        method: "POST",
+        body: JSON.stringify(updatedGroupInfo),
+        headers: { 'Content-Type': 'application/json' },
+    })
+
+    if (response.ok){
+        console.log("group Created")
+    }
+    else{
+        alert(response.statusText)
+    }
+
+    destroyLinks()
+}
+
+const deleteGroup = async () => {
+    const response = await fetch('/projects/removeGroup/' + part,{
+        method: "DELETE"
+    })
+    if (response.ok){
+        console.log("deleted")
+    }
+    else{
+        alert(response.statusText)
+    }
+    updateGroupInfo()
 }
 
 const saveLinks = async () =>{
@@ -423,7 +486,7 @@ const saveLinks = async () =>{
     }
     
 
-    updateGroupInfo()
+    deleteGroup()
 }
 
 const saveChanges = async () =>{
