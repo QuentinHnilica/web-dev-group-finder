@@ -275,7 +275,7 @@ function editGroup(){
             }
         }
         else if (projectInfo[i].disc == 'inUse'){
-            
+
         }
         else if (projectInfo[i].disc == 'needed'){
 
@@ -291,8 +291,152 @@ function closeMod(){
     document.getElementById('createGroup').style = "display: none;"
 }
 
-function saveChanges(){
+const updateGroupLinks = () =>{
+    let updatedGroupLinks = []
+    let link1 = {}
+    let link2 = {}
+    let link3 = {}
+    let link4 = {}
 
+    
+    if (link1Name.value == ''){
+        link1.name = link1Name.placeholder
+    }
+    else{
+        link1.name = link1Name.value
+    }
+
+    if (link1Link.value == ''){
+        link1.SocialLink = link1Link.placeholder
+    }
+    else{
+        link1.SocialLink = link1Link.value
+    }
+
+
+    if (link2Name.value == ''){
+        link2.name = link2Name.placeholder
+    }
+    else{
+        link2.name = link2Name.value
+    }
+
+    if (link2Link.value == ''){
+        link2.SocialLink = link2Link.placeholder
+    }
+    else{
+        link2.SocialLink = link2Link.value
+    }
+
+
+    if (link3Name.value == ''){
+        link3.name = link3Name.placeholder
+    }
+    else{
+        link3.name = link3Name.value
+    }
+
+    if (link3Link.value == ''){
+        link3.SocialLink = link3Link.placeholder
+    }
+    else{
+        link3.SocialLink = link3Link.value
+    }
+
+
+    if (link4Name.value == ''){
+        link4.name = link4Name.placeholder
+    }
+    else{
+        link4.name = link4Name.value
+    }
+
+    if (link4Link.value == ''){
+        link4.SocialLink = link4Link.placeholder
+    }
+    else{
+        link4.SocialLink = link4Link.value
+    }
+
+    updatedGroupLinks.push(link1)
+    updatedGroupLinks.push(link2)
+    updatedGroupLinks.push(link3)
+    updatedGroupLinks.push(link4)
+
+}
+
+const updateGroupInfo = async () =>{
+    let updatedGroupInfo = []
+
+    if (groupName2.value == ''){
+        updatedGroupInfo.push(groupName2.placeholder)
+    }
+    else{
+        updatedGroupInfo.push(groupName2.value)
+    }
+
+    if (groupDisc.value == ''){
+        updatedGroupInfo.push(groupDisc.placeholder)
+    }
+    else{
+        updatedGroupInfo.push(groupDisc.value)
+    }
+
+    updatedGroupInfo.push(groupDifficulty.value)
+
+    updateGroupLinks()
+}
+
+const saveLinks = async () =>{
+    const row1 = groupTechNeed.children[0]
+    const row2 = groupTechNeed.children[1]
+    let updatedTechNeeded = []
+    
+    for (let i = 0; i < row1.children.length; i++){
+        if (row1.children[i].children[1].checked){
+            const newNeeded = {
+                GroupId: part,
+                Tech: row1.children[i].children[1].id
+            }
+            updatedTechNeeded.push(newNeeded)
+        }
+    }
+
+    for (let i = 0; i < row2.children.length; i++){
+        if (row2.children[i].children[1].checked){
+            const newNeeded = {
+                GroupId: part,
+                Tech: row2.children[i].children[1].id
+            }
+            updatedTechNeeded.push(newNeeded)
+        }
+    }
+
+    console.log(updatedTechNeeded)
+
+    for (let i = 0; i < updatedTechNeeded.length; i++){
+        const response = await fetch('/projects/updateNeed/' + part,{
+            method: "POST",
+            body: JSON.stringify(updatedTechNeeded[i]),
+            headers: { 'Content-Type': 'application/json' },
+        })
+    }
+    
+
+    updateGroupInfo()
+}
+
+const saveChanges = async () =>{
+    const response = await fetch('/projects/removeTech/' + part,{
+        method: "DELETE"
+    })
+    if (response.ok){
+        console.log("deleted")
+    }
+    else{
+        alert(response.statusText)
+    }
+    saveLinks()
 }
 
 xMod.addEventListener('click', closeMod)

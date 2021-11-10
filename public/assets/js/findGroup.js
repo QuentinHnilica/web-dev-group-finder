@@ -391,7 +391,7 @@ function makeNewGroup(){
 }
 
 const addOtherInfo = async() =>{
-
+    
 }
 
 const makeGroup = async() =>{

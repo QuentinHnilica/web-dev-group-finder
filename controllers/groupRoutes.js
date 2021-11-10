@@ -108,4 +108,27 @@ router.get('/getGroups/:name', async(req, res) => {
     }
 })
 
+router.post('/updateNeed/:id', async(req, res) => {
+    try{
+        const update = await techNeeded.create(req.body)
+        res.status(200).json(update)
+
+    }catch{
+        res.status(400).json(err)
+    }
+})
+
+router.delete('/removeTech/:id', async(req, res) => {
+    try{
+        const deleted = await techNeeded.destroy({
+            where:{
+                GroupId: req.params.id
+            }
+        })
+        res.status(200).json(deleted)
+    }catch{
+        res.status(400).json(err)
+    }
+})
+
 module.exports = router;
