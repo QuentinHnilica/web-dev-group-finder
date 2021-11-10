@@ -145,6 +145,7 @@ const finalGroupHandler = async(currPage) =>{
                 let groupDesc = finalGroupResult[index].description
                     let groupDiff = finalGroupResult[index].difficulty
                     let groupName = finalGroupResult[index].name
+                    let GroupId = finalGroupResult[index].id
                 const groupPost = 
                 `<div class = "d-flex flex-column align-items-center">
                 <section class = "border m-4" style="width: 90%;">
@@ -161,7 +162,7 @@ const finalGroupHandler = async(currPage) =>{
                         <!-- iconHolder -->
                         <a></a>
                     </div>
-                    <button class = "btn bodyButtons">View Group</button>
+                    <button class = "btn bodyButtons " id="${GroupId}" onclick = "viewGroup($(this))" >View Group</button>
                 </div>
                 </section>
                 </div>`
