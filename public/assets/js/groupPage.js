@@ -577,13 +577,15 @@ const postTime = async (e) =>{
     window.location.reload()
 }
 
-const acceptUser = async()=>{
+const acceptUser = async(e)=>{
     console.log('accept')
 }
 
-const declineUser = async()=>{
+const declineUser = async(e)=>{
     
-    console.log('declined')
+    const response = await fetch('/projects/reject', {
+        method: "DELETE"
+    })
 }
 
 const openRequests = async () =>{
