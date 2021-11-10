@@ -281,8 +281,12 @@ function editGroup(){
         else if (projectInfo[i].disc == 'inUse'){
 
         }
-        else if (projectInfo[i].disc == 'needed'){
-
+        else if (projectInfo[i].disc ==  'needed'){
+            var neededTable = projectInfo[i]
+            for (let i = 0; i < neededTable.length; i++){
+                let input = document.getElementById(neededTable[i].Tech)
+                input.checked = true
+            }
         }
     }
     
