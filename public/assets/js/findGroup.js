@@ -8,6 +8,10 @@ let difficulty
 let groupTableTech = []
 let finalGroupResult = []
 
+function viewGroup(e){
+    console.log(e[0].id)
+}
+
 function addBottomBar(groupLength){
     document.getElementById('navGroup').innerHTML = ""
     if (groupLength > 6){
@@ -30,7 +34,7 @@ function addBottomBar(groupLength){
         }
 }
 
-const getTech = async(thisID, groupDesc, groupDiff, groupName, groupLength, index, cap, lastPage) =>{
+const getTech = async(thisID, groupDesc, groupDiff, groupName, groupLength, index, cap, lastPage, GroupId) =>{
     let techNeededArr = []
     const response = await fetch("/api/projects/search",{
         method: "GET"
@@ -61,7 +65,7 @@ const getTech = async(thisID, groupDesc, groupDiff, groupName, groupLength, inde
                     <!-- iconHolder -->
                     <a></a>
                 </div>
-                <button class = "btn bodyButtons">View Group</button>
+                <button class = "btn bodyButtons " id="${GroupId}" onclick = "viewGroup($(this))" >View Group</button>
             </div>
             </section>
             </div>`
@@ -87,9 +91,6 @@ const getTech = async(thisID, groupDesc, groupDiff, groupName, groupLength, inde
     else{
         alert(response.statusText)
     }
-
-    
-    
 }
 
 const finalGroupHandler = async(currPage) =>{
@@ -244,7 +245,8 @@ const findGroupHandler = async (currPage) =>{
                     let groupDesc = data[index].description
                     let groupDiff = data[index].difficulty
                     let groupName = data[index].name
-                    getTech(data[index].id, groupDesc, groupDiff, groupName, data.length, index, i1,lastPage)
+                    let groupID = data[index].id
+                    getTech(data[index].id, groupDesc, groupDiff, groupName, data.length, index, i1,lastPage, groupID)
                     
                 }
                 
