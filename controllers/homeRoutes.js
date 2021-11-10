@@ -19,9 +19,9 @@ router.get('/', withAuth, async (req, res) => {
         });
 
         console.log(user);
-    }catch(err) {
+    } catch(err) {
         res.status(500).json(err);
-    } 
+    };
 
 
     // try {
@@ -45,7 +45,7 @@ router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('/');
         return;
-    }
+    };
 
     res.render('login');
 });
