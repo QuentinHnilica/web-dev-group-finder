@@ -2,6 +2,7 @@ var path = this.pathname || window.location.pathname;
 var part = path.split('/').pop(); //groupNumber
 let groupAdmin 
 let projectInfo  = []
+let thisUser
 
 const xMod = document.getElementById('xClose')
 const botClose = document.getElementById('botClose')
@@ -19,6 +20,8 @@ const link3Link = document.getElementById('link3Link')
 const link4Name = document.getElementById('link4Name')
 const link4Link = document.getElementById('link4Link')
 const groupTechNeed = document.getElementById('groupTechNeed')
+
+const submitPost = document.getElementById('submitPost')
 
 const getGroupPosts = async () =>{
     const response = await fetch('/projects/posts/' + part,{
@@ -212,6 +215,7 @@ getCurrUser = async()=>{
     if (response.ok){
         response.json().then(function(data){
             if (data != null){ //user is logged in
+                thisUser = data.id
                 if (data.id == groupAdmin){
                     const adminButton = `<button class = "btn bodyButtons" onclick="editGroup()">Edit Group</button>`
                     $('#insertEdit').append(adminButton)
@@ -380,6 +384,7 @@ const updateGroupLinks = async () =>{
         }
         
     }
+    window.location.reload()
 }
 
 const destroyLinks = async () => {
@@ -502,6 +507,30 @@ const saveChanges = async () =>{
     saveLinks()
 }
 
+const postTime = async (e) =>{
+    console.log()
+    let newPost = {
+        GroupId: part,
+        UsersID: thisUser,
+        PostContent: $('#yourPost')[0].value
+
+    }
+    const response = await fetch('/projects/addPost', {
+        method: "POST",
+        body: JSON.stringify(newPost),
+        headers: { 'Content-Type': 'application/json' },
+    })
+    if (response.ok){
+        console.log("Posted")
+    }
+    else{
+        alert(response.statusText)
+    }
+    window.location.reload()
+}
+
+
+submitPost.addEventListener('click', postTime)
 xMod.addEventListener('click', closeMod)
 botClose.addEventListener('click', closeMod)
 modCreate.addEventListener('click', saveChanges)

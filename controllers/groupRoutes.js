@@ -169,9 +169,18 @@ router.post('/remakeGroup', async(req, res) => {
 
 router.post('/updateLinks', async(req, res) => {
     try{
-        console.log("?????")
         const newLink = await SocialLink.create(req.body)
         res.status(200).json(newLink)
+
+    }catch{
+        res.status(400).json("uh oh. didn't work")
+    }
+})
+
+router.post('/addPost', async(req, res) => {
+    try{
+        const newPost = await Posts.create(req.body)
+        res.status(200).json(newPost)
 
     }catch{
         res.status(400).json("uh oh. didn't work")
