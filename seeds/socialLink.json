@@ -1,6 +1,22 @@
 [
     {
         "GroupId": 1,
-        "SocialLink": "http://github.com"
+        "SocialLink": "http://github.com",
+        "name": "GitHub"
+    },
+    {
+        "GroupId": 1,
+        "SocialLink": "http://trello.com",
+        "name": "Trello"
+    },
+    {
+        "GroupId": 1,
+        "SocialLink": "http://discord.com",
+        "name": "Discord"
+    },
+    {
+        "GroupId": 1,
+        "SocialLink": "http://jokes.com",
+        "name": "jokes"
     }
 ]

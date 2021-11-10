@@ -10,5 +10,18 @@
         "GroupId": 1,
         "UsersID": 2,
         "PostContent": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia volupta"
+    },
+    {
+        "PostId": 3,
+        "GroupId": 2,
+        "UsersID": 2,
+        "PostContent": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia volupta"
+    },
+    {
+        "PostId": 4,
+        "GroupId": 4,
+        "UsersID": 2,
+        "PostContent": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia volupta"
     }
+
 ]

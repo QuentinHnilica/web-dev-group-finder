@@ -260,14 +260,6 @@ const findGroupHandler = async (currPage) =>{
     
         
         const insertPost = document.getElementById('postGroup')
-            
-            //     <button class = "btn bodyButtons" formaction="/projects/${data[i].id}>View Group</button>
-            //     </div>
-            //     </section>
-            //     </div>`
-            //     $('#postGroup').append(groupPost)
-            // }
-       //})
     }
     else{ //Search Logic
         groupTableTech = []
@@ -327,9 +319,7 @@ function searchForGroups(){
     home = false
     for (let i = 0; i < document.querySelectorAll('#theBox').length; i++){
         if ( document.querySelectorAll('#theBox')[i].checked == true){
-            //console.log(document.querySelectorAll('#theBox')[i].parentNode)
             searchVar = document.querySelectorAll('#theBox')[i].parentNode.childNodes[3].id
-            console.log(searchVar)
         }
     }
     difficulty = parseInt( document.querySelector('#difficulty').value )
