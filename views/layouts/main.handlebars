@@ -11,16 +11,20 @@
 </head>
 
 <body>
+    
 
     <nav>
       <section class = 'navbar d-flex justify-content-between py-4' id="nav">
           <!-- holder for icon -->
           <a></a>
           <aside id = 'nav-button-holder' class = 'd-flex flex-row justify-content-end'>
-              <button class = 'me-5 btn navButtons'>Home</button>
+              <button class = 'me-5 btn navButtons' href ="/">Home</button>
               {{#if logged_in}}
                 <button class = 'me-5 btn navButtons' id="logout">logout</button>
+                
               {{/if}}
+              
+              
           </aside>
       </section>
     </nav>

@@ -398,6 +398,7 @@ const makeGroup = async() =>{
         else{
             alert(response.statusText)
         }
+        window.location.reload()
     }
     else{
 

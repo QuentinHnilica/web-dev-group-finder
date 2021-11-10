@@ -23,3 +23,12 @@ document
   .querySelector('.login_form')
   .addEventListener('submit', loginFormHandler);
   
+
+  const signup = document.getElementById('signUp')
+
+function signUpRoute(){
+  window.location.href = '/signUp'
+}
+
+
+  signup.addEventListener('click', signUpRoute)

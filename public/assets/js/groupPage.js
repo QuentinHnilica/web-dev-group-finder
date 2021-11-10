@@ -726,6 +726,7 @@ const submitJoinReq = async () =>{
             else{
                 alert(response.statusText)
             }
+            window.location.reload()
         }
     }
     else{
