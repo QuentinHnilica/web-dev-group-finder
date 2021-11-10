@@ -23,6 +23,17 @@ const groupTechNeed = document.getElementById('groupTechNeed')
 
 const submitPost = document.getElementById('submitPost')
 
+const closeReqTop = document.getElementById('closeReqTop')
+const closeReqBot = document.getElementById('closeReqBot')
+
+const reqJoinCloseTop = document.getElementById('reqJoinCloseTop')
+const reqJoinCloseBot = document.getElementById('reqJoinCloseBot')
+
+const submitReq = document.getElementById('submitReq')
+
+
+let inGroup = false
+
 const getGroupPosts = async () =>{
     const response = await fetch('/projects/posts/' + part,{
         method: "GET"
@@ -147,6 +158,9 @@ const getUsers = async () =>{
     })
     if (response.ok){
         response.json().then(function(data){
+            var usersList = data
+            usersList.disc = 'groupUsers'
+            projectInfo.push(usersList)
             for (let i = 0; i < data.length; i++){
                 let usersName = data[i].Username
                 const userHTML = `<a class="list-group-item list-group-item-action boxTextColor midBg" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab">${usersName}</a>`
@@ -207,6 +221,7 @@ function editGroup(){
 
 }
 
+
 getCurrUser = async()=>{
     console.log(projectInfo)
     const response = await fetch('/projects/user',{
@@ -218,7 +233,28 @@ getCurrUser = async()=>{
                 thisUser = data.id
                 if (data.id == groupAdmin){
                     const adminButton = `<button class = "btn bodyButtons" onclick="editGroup()">Edit Group</button>`
+                    const checkRequests = `<button class = "btn bodyButtons" onclick="openRequests()">Check Requests</button>`
                     $('#insertEdit').append(adminButton)
+                    $('#insertEdit').append(checkRequests)
+                }
+                else{
+                    for (let i = 0; i < projectInfo.length; i++){
+                        if (projectInfo[i].disc == "groupUsers"){
+                            if (projectInfo[i].includes(data.username)){
+                                inGroup = true
+                            }
+                            else{
+                                document.getElementById('insertLink').innerHTML = ""
+                                document.getElementById('commentBox').innerHTML = ""
+                                document.getElementById('commentButton').innerHTML = ""
+
+                                const reqToJoinButton = `<button class = "btn bodyButtons" onclick="openJoinReq()">Request To Join Group</button>`
+
+                                $('#commentButton').append(reqToJoinButton)
+                                
+                            }
+                        }
+                    }
                 }
             }
             else{ //user is not logged in
@@ -297,6 +333,14 @@ function editGroup(){
 
 function closeMod(){
     document.getElementById('createGroup').style = "display: none;"
+}
+
+function closeReq(){
+    document.getElementById('checkReq').style = "display: none;"
+}
+
+function closeJoinReq(){
+    document.getElementById('joinReqMod').style = "display: none;"
 }
 
 const updateGroupLinks = async () =>{
@@ -533,8 +577,129 @@ const postTime = async (e) =>{
     window.location.reload()
 }
 
+const acceptUser = async()=>{
+    console.log('accept')
+}
+
+const declineUser = async()=>{
+    
+    console.log('declined')
+}
+
+const openRequests = async () =>{
+
+    const response = await fetch('/projects/getReqs/' + part, {
+        method: "GET"
+    })
+
+    if (response.ok){
+        console.log("Got Rekt")
+        response.json().then(function(data){
+            console.log(data)
+            
+            for (let i = 0; i < data.length; i++){
+                const theHTML = `
+                <div>
+                    <div>
+                        <p>${data[i].Username}</p>
+                    </div>
+                    <div>
+                        <p>${data[i].portfolio}</p>
+                    </div>
+                    <div>
+                        <p>${data[i].requestedTech}</p>
+                    </div>
+                    <div>
+                        <p>${data[i].message}</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="acceptUser($(this))">Accept</button>
+                    <button type="button" class="btn btn-primary" onclick="declineUser($(this))">Decline</button>
+                </div>`
+                $('#putRektsHere').append(theHTML)
+            }
+            
+        })
+    }
+    else{
+        alert(response.statusText)
+    }
+
+    document.getElementById('checkReq').style = "display: block;"
+}
+
+function openJoinReq(){
+    for (let i = 0; i < projectInfo.length; i++){
+        if (projectInfo[i].disc == "needed"){
+            const rightObj = projectInfo[i]
+            for(let z = 0; z < rightObj.length; z++){
+                console.log(rightObj[z])
+                let newCheckBox = `
+                <input class= "form-check-input" type= "radio" name= "flexRadioDefault" id= "theBox">
+                <label class= "form-check-label" for= "isChecked" id="${rightObj[z].Tech}" >      
+                    ${rightObj[z].Tech}
+                </label>
+                </div>`
+                $('#requestedTech').append(newCheckBox)
+            }
+        }
+    }
+    
+
+
+
+
+
+    document.getElementById('joinReqMod').style = "display: block;"
+}
+
+const submitJoinReq = async () =>{
+    if (document.getElementById('ReqComment').value != ""){
+        let searchVar
+        console.log(document.getElementById('requestedTech'))
+        for (let i = 0; i < document.querySelectorAll('#theBox').length; i++){
+            if ( document.querySelectorAll('#theBox')[i].checked == true){
+                
+                searchVar = document.querySelectorAll('#theBox')[i].nextElementSibling.id
+                
+            }
+        }
+        if (searchVar != null){
+            const newPost = {
+                GroupId: part,
+                Username: thisUser,
+                requestedTech: searchVar,
+                portfolio: document.getElementById('portfolioLink').value,
+                message: document.getElementById('ReqComment').value
+            }
+            console.log(newPost)
+            const response = await fetch('/projects/requestToJoin',{
+                method: "POST",
+                body: JSON.stringify(newPost),
+                headers: { 'Content-Type': 'application/json' },
+            })
+
+            if (response.ok){
+                console.log('Your req has been submitted')
+            }
+            else{
+                alert(response.statusText)
+            }
+        }
+    }
+    else{
+        //must fill out comment box
+    }
+
+}
 
 submitPost.addEventListener('click', postTime)
 xMod.addEventListener('click', closeMod)
 botClose.addEventListener('click', closeMod)
 modCreate.addEventListener('click', saveChanges)
+
+closeReqTop.addEventListener('click', closeReq)
+closeReqBot.addEventListener('click', closeReq)
+
+submitReq.addEventListener('click', submitJoinReq)
+reqJoinCloseTop.addEventListener('click', closeJoinReq)
+reqJoinCloseBot.addEventListener('click', closeJoinReq)

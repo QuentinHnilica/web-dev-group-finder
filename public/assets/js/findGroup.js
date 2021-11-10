@@ -196,22 +196,6 @@ const finalGroupHandler = async(currPage) =>{
                 maxPage = amtOfPages + 1
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         })
     }
     else{

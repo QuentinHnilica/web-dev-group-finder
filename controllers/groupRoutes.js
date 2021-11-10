@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Project, Posts, GroupUsers, SocialLink, techNeeded, TechInUse } = require("../models");
+const { User, Project, Posts, GroupUsers, SocialLink, techNeeded, TechInUse, JoinRequest } = require("../models");
 
 
 router.get('/posts/:id', async(req, res) =>{
@@ -186,5 +186,28 @@ router.post('/addPost', async(req, res) => {
         res.status(400).json("uh oh. didn't work")
     }
 })
+
+router.post('/requestToJoin', async(req, res) => {
+    try{
+        const newRequest = await JoinRequest.create(req.body)
+        res.status(200).json(newRequest)
+    }catch{
+        res.status(400).json(err)
+    }
+})
+
+router.get('/getReqs/:id', async(req, res) => {
+    try{
+        const rekts = await JoinRequest.findAll({
+            where:{
+                GroupId: req.params.id
+            }
+        })
+        res.status(200).json(rekts)
+    }catch{
+        res.status(400).json(err)
+    }
+})
+
 
 module.exports = router;

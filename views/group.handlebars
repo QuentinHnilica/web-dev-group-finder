@@ -49,13 +49,13 @@
                 <section class = "border m-4" style="width: 80%;">
                     <div class = "d-flex align-items-start flex-column m-3">          
                     </div>
-                    <div class="form-floating" style=" width: 80%; margin: auto;">
+                    <div class="form-floating" style=" width: 80%; margin: auto;" id="commentBox">
                             <textarea class="form-control" placeholder="Leave a comment here" id="yourPost" style="height: 100px;"></textarea>
                             <label for="floatingTextarea2" style="margin: auto;">Comments</label>
-                        </div>
+                    </div>
                     <!-- bottom of sub-box -->
 
-                    <div class = "d-flex justify-content-between m-3">
+                    <div class = "d-flex justify-content-between m-3" id="commentButton">
                         <div style="justify-content: flex-end; margin: auto;">
                             <button class = "btn bodyButtons" id="submitPost">Comment</button>
                         </div>
@@ -218,6 +218,73 @@
 </div>
 
 
+{{!-- check for requests page --}}
+<div class="modal" tabindex="-1" id="checkReq">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" id="closeReqTop" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="putRektsHere">
+        ...
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeReqBot">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{{!-- request to join modal  --}}
+<div class="modal" tabindex="-1" id="joinReqMod">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="reqJoinCloseTop"></button>
+      </div>
+      <div class="modal-body">
+        <div class="px-3 py-4 m-4 border d-flex flex-column">
+    <div class="container">
+        <div class="row text-center">
+        <h1 class="display-5 fw-bold boxTextColor">
+            Request To Join Group
+        </h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="mb-3">
+            <label class="form-label boxTextColor">Link Your Portfolio</label>
+            <input type="text" class="form-control" aria-describedby="emailHelp" id="portfolioLink">
+        </div>
+
+        <div class="mb-3">
+            <div class="form-floating" style=" width: 80%; margin: auto;" id="commentBox">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="ReqComment" style="height: 100px;"></textarea>
+                    <label for="floatingTextarea2" style="margin: auto;">Comments</label>
+            </div>
+        </div>
+        
+        <div>
+            <p style="color: white;">Choose the Tech You Would Like to use</p>
+        </div>
+
+                <div style="width: 100%;" id="requestedTech">
+                    
+                </div>
+    </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="reqJoinCloseBot">Close</button>
+        <button type="button" class="btn btn-primary" id="submitReq">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="/assets/js/groupPage.js"></script>
