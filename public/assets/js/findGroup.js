@@ -327,7 +327,9 @@ function searchForGroups(){
     home = false
     for (let i = 0; i < document.querySelectorAll('#theBox').length; i++){
         if ( document.querySelectorAll('#theBox')[i].checked == true){
-            searchVar = document.querySelectorAll('#theBox')[i].parentNode.firstElementChild.innerHTML
+            //console.log(document.querySelectorAll('#theBox')[i].parentNode)
+            searchVar = document.querySelectorAll('#theBox')[i].parentNode.childNodes[3].id
+            console.log(searchVar)
         }
     }
     difficulty = parseInt( document.querySelector('#difficulty').value )
