@@ -3,10 +3,30 @@ let maxPage
 let home = true
 const chekBox = document.getElementById('searchQuery')
 const searchGroup = document.getElementById('searchGroup')
+const xMod = document.getElementById('xClose')
+const botClose = document.getElementById('botClose')
+const modCreate = document.getElementById('modCreate')
+
+const groupName = document.getElementById('groupName')
+const groupDifficulty = document.getElementById('groupDifficulty')
+const groupDisc = document.getElementById('groupDisc')
+const link1Name = document.getElementById('link1Name')
+const link1Link = document.getElementById('link1Link')
+const link2Name = document.getElementById('link2Name')
+const link2Link = document.getElementById('link2Link')
+const link3Name = document.getElementById('link3Name')
+const link3Link = document.getElementById('link3Link')
+const link4Name = document.getElementById('link4Name')
+const link4Link = document.getElementById('link4Link')
+const groupTechNeed = document.getElementById('groupTechNeed')
+
+
 let searchVar
 let difficulty
 let groupTableTech = []
 let finalGroupResult = []
+
+let currUser
 
 function viewGroup(e){
     window.location = window.location + "projects/" + e[0].id
@@ -44,9 +64,8 @@ const getTech = async(thisID, groupDesc, groupDiff, groupName, groupLength, inde
             
             for (let i = 0; i <data.length; i++){
                 if (data[i].GroupId == thisID){
-                    console.log(data[i].Tech)
                     techNeededArr.push(data[i].Tech.toString())
-                    console.log(techNeededArr)
+
                 }
             }
             const groupPost = 
@@ -77,9 +96,7 @@ const getTech = async(thisID, groupDesc, groupDiff, groupName, groupLength, inde
                 }
             }
             else{
-                console.log(index, cap)
                 if (index == cap +1){
-                    console.log('bruh')
                     addBottomBar(groupLength)
                 }
             }
@@ -116,13 +133,6 @@ const finalGroupHandler = async(currPage) =>{
                     }
                 });
             }
-            console.log(finalGroupResult)
-
-
-
-
-
-
 
             var first = false
             var i1
@@ -176,7 +186,6 @@ const finalGroupHandler = async(currPage) =>{
                     pages = pages +  `<li class="page-item"><a class="page-link" onclick='nextPage(${i + 1})'>${i + 1}</a></li>
                     `
                 }
-                console.log(pages)
                 const pagination = `<nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center" >
                     <li class="page-item"><a class="page-link" onclick='nextPage("Previous")'>Previous</a></li>
@@ -273,7 +282,6 @@ const findGroupHandler = async (currPage) =>{
                         groupTableTech.push(data[i])
                     }
                 }
-                console.log(groupTableTech)
                 finalGroupHandler(currPage)
             })
         }
@@ -327,8 +335,73 @@ function searchForGroups(){
     findGroupHandler()
 }
 
+getUsersGroup = async()=>{
+    console.log(currUser)
+    const response = await fetch('/projects/getGroups/' + currUser.username, {
+        method: "GET"
+    })
+    if (response.ok){
+        response.json().then(function(data){
+            if (data.length != 0){
+                let 
+                for (let i = 0; i < data.length; i++){
+                    let theGroup = `<a class="list-group-item list-group-item-action boxTextColor midBg" id="list-home-list" data-bs-toggle="list" onclick="goToGroup()" role="tab">Create New Group</a>`
+                $('#yourGroups').append(theGroup)
+                }
+            }
+            else{
 
+                const noGroups = `<a class="list-group-item list-group-item-action boxTextColor midBg" id="list-home-list" data-bs-toggle="list" onclick="makeNewGroup()" role="tab">Create New Group</a>`
+                $('#yourGroups').append(noGroups)
+            }
+        })
+    }
+    else{
+        alert(response.statusText)
+    }
+}
 
+getCurrUser = async()=>{
+    const response = await fetch('/projects/user',{
+        method: "GET"
+    })
+    if (response.ok){
+        response.json().then(function(data){
+            if (data != null){ //user is logged in
+                currUser = data
+                getUsersGroup()
+            }
+            else{ //user is not logged in
+                //Put a sign Up button here
+            }
+        })
 
+    }
+    else{
+        alert(response.statusText)
+    }
+}
+
+function goToGroup(){
+    console.log("Go TO Group")
+}
+
+function makeNewGroup(){
+    document.getElementById('createGroup').style = "display: block;"
+}
+
+function makeGroup(){
+    
+}
+
+function closeMod(){
+    document.getElementById('createGroup').style = "display: none;"
+}
+
+getCurrUser()
 searchGroup.addEventListener('click', searchForGroups)
+
+xMod.addEventListener('click', closeMod)
+botClose.addEventListener('click', closeMod)
+modCreate.addEventListener('click', makeGroup)
 

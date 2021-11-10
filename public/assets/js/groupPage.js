@@ -52,7 +52,6 @@ const getSocialLinks = async () =>{
     })
     if (response.ok){
         response.json().then(function(data){
-            console.log(data)
             switch(data.length){
                 case 1:
                     let linkName = data[0].name
@@ -170,6 +169,26 @@ const getTechNeeded = async () =>{
     }
 }
 
+getCurrUser = async()=>{
+    const response = await fetch('/projects/user',{
+        method: "GET"
+    })
+    if (response.ok){
+        response.json().then(function(data){
+            if (data != null){ //user is logged in
+                console.log(data)
+            }
+            else{ //user is not logged in
+
+            }
+        })
+
+    }
+    else{
+        alert(response.statusText)
+    }
+}
+
 getGroupPosts()
 
 getGroupInfo()
@@ -181,3 +200,5 @@ getUsers()
 getTechInUse()
 
 getTechNeeded()
+
+getCurrUser()

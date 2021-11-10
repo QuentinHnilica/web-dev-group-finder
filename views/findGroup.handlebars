@@ -5,10 +5,8 @@
                 <div>
                 <h3 class = "boxTextColor">Your Groups</h3>
                 </div>
-                <div class="list-group mb-3" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab">{{user.username}}'s Group</a>
-                    <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab">Group2</a>
-                    <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab">Group3</a>
+                <div class="list-group mb-3" id="yourGroups" role="tablist">
+
                 </div>
             </div>
         </div>
@@ -76,5 +74,139 @@
         </div>
     </div>
 </div>
+<div class="modal" tabindex="-1" id="createGroup">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="xClose"></button>
+      </div>
+      <div class="modal-body">
+        <div class="px-3 py-4 m-4 border d-flex flex-column">
+    <div class="container">
+        <div class="row text-center">
+        <h1 class="display-5 fw-bold boxTextColor">
+            Make your Group
+        </h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="mb-3">
+            <label class="form-label boxTextColor">Group Name</label>
+            <input class="form-control" id="groupName">
+        </div>
+        <div>
+            <h2 class= "boxTextColor">Difficulty bar</h2>
+        </div>
+        <div class= "d-flex justify-content-between">
+            <label class = "boxTextColor">easy</label>
+            <label class = "boxTextColor">hard</label>
+        </div>
+        <div>
+            <input type="range" min="1" max="5" id="groupDifficulty">
+        </div>
+        <div class="mb-3">
+            <label class="form-label boxTextColor">Project Description</label>
+            <input type="text" class="form-control" aria-describedby="emailHelp" id="groupDisc">
+        </div>
+        <div class="mb-3">
+            <label class="form-label boxTextColor">Link name #1 </label>
+            <input type="text" class="form-control" id="link1Name"> 
+            <label class="form-label boxTextColor">Link address #1 </label>
+            <input type="text" class="form-control" id="link1Link"> 
+
+           
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label boxTextColor">Link name #2 </label>
+            <input type="text" class="form-control"id="link2Name"> 
+            <label class="form-label boxTextColor">Link address #2 </label>
+            <input type="text" class="form-control" id="link2Link"> 
+
+           
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label boxTextColor">Link name #3</label>
+            <input type="text" class="form-control" id="link3Name"> 
+            <label class="form-label boxTextColor">Link address #3 </label>
+            <input type="text" class="form-control" id="link3Link"> 
+
+           
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label boxTextColor">Link name #4 </label>
+            <input type="text" class="form-control" id="link4Name"> 
+            <label class="form-label boxTextColor">Link address #4 </label>
+            <input type="text" class="form-control" id="link4Link"> 
+
+           
+        </div>
+        
+        <div>
+            <p style="color: white;">Choose the Tech You need for your Project</p>
+        </div>
+
+                <div class="checkBox " style="width: 100%;" id="groupTechNeed">
+                    <div class="row">
+                        <label class="checkMarkContainer groupMakerCheck col-3">
+                        <p style="padding-left: 25%">HTML</p>
+                        <input id = "HTML" type="checkbox">
+                        <span class="checkMark"></span>
+                    </label>
+                    <label  class="checkMarkContainer groupMakerCheck col-3" >
+                        <p style="padding-left: 25%">CSS</p>
+                        <input id="CSS" type="checkbox">
+                        <span class="checkMark"></span>
+                    </label>
+                    <label class="checkMarkContainer groupMakerCheck  col-3">
+                        <p style="padding-left: 25%">JS</p>
+                        <input id="JS" type="checkbox">
+                        <span class="checkMark "></span>
+                    </label>
+                    <label class="checkMarkContainer groupMakerCheck col-3">
+                        <p style="padding-left: 25%">Node.JS</p>
+                        <input id="Node" type="checkbox">
+                        <span class="checkMark "></span>
+                    </label>
+                    </div>
+
+                    <div class="row">
+                        <label class="checkMarkContainer groupMakerCheck col-3">
+                            <p style="padding-left: 25%">Express</p>
+                        <input id="express" type="checkbox">
+                        <span class="checkMark "></span>
+                    </label>
+                    <label class="checkMarkContainer groupMakerCheck col-3">
+                        <p style="padding-left: 25%">MySQL</p>
+                        <input id="MySQL" type="checkbox">
+                        <span class="checkMark "></span>
+                    </label>
+                    <label class="checkMarkContainer groupMakerCheck col-3">
+                        <p style="padding-left: 25%">Sequalize</p>
+                        <input id="Sequalize" type="checkbox">
+                        <span class="checkMark "></span>
+                    </label>
+                    <label class="checkMarkContainer groupMakerCheck col-3">
+                        <p style="padding-left: 25%">HandleBars</p>
+                        <input id="handlebars" type="checkbox">
+                        <span class="checkMark "></span>
+                    </label>
+                    </div>
+                </div> 
+    </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="botClose">Close</button>
+        <button type="button" class="btn btn-primary" id="modCreate">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="assets/js/findGroup.js"></script>

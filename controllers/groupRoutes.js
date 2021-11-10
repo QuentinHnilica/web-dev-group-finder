@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { User, Project, Posts, GroupUsers, SocialLink, techNeeded, TechInUse } = require("../models");
-const TechNeeded = require("../models/techNeeded");
+
 
 router.get('/posts/:id', async(req, res) =>{
     try{
@@ -56,7 +56,7 @@ router.get('/social/:id', async(req, res) =>{
 
 router.get('/needed/:id', async(req, res) =>{
     try{
-        const posts = await TechNeeded.findAll({
+        const posts = await techNeeded.findAll({
             where: {
                 GroupId: req.params.id
             }
@@ -76,6 +76,34 @@ router.get('/inUse/:id', async(req, res) =>{
         });
         res.status(200).json(posts)
     }catch(err){
+        res.status(400).json(err)
+    }
+})
+
+router.get('/user', async(req,res)=>{
+    try{
+        const theUser = await User.findOne({
+            where:{
+                id: req.session.user_id
+            }
+        })
+        res.status(200).json(theUser)
+        
+    }catch{
+        res.status(400).json(err)
+    }
+    
+})
+
+router.get('/getGroups/:name', async(req, res) => {
+    try{
+        const allGroups = await GroupUsers.findAll({
+            where:{
+                Username: req.params.name
+            }
+        })
+        res.status(200).json(allGroups)
+    }catch{
         res.status(400).json(err)
     }
 })
