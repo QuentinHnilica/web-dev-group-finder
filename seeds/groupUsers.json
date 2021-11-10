@@ -1,6 +1,22 @@
 [
     {
         "GroupId": 1,
-        "UserId": 1
+        "Username": "QuentinHnilica"
+    },
+    {
+        "GroupId": 1,
+        "Username": "NotQuentin"
+    },
+    {
+        "GroupId": 1,
+        "Username": "jo"
+    },
+    {
+        "GroupId": 2,
+        "Username": "susie"
+    },
+    {
+        "GroupId": 2,
+        "Username": "john"
     }
 ]

@@ -5,11 +5,15 @@
             <div style="text-align: center;">
                 <h3 class = "boxTextColor">Users</h3>
                 </div>
-                <div class="list-group " id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab">User1</a>
-                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab">User2</a>
+                <div class="list-group " id="list-tab" role="tablist"></div>
+                    {{#each users}}
+                    <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab">{{id}}</a>
+                    {{/each}}
+                
+                
+                {{!-- <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab">User2</a>
                 <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab">User3</a>
-                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab">User4</a>
+                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab">User4</a> --}}
                 </div>
             </div>
             <!-- Skills Box -->
@@ -18,7 +22,10 @@
                 <h3 class = "boxTextColor">Skills In Use</h3>
                 </div>
                 <div class="list-group" id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab">HTML</a>
+                    {{#each techsInUse}}
+                        <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab">{{Tech}}</a>
+                    {{/each}}
+                
                 <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab">CSS</a>
                 <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab">JS</a>
                 </div>
@@ -42,8 +49,8 @@
             <div class = "d-flex flex-column align-items-center">
                 <section class = "border m-4">
                     <div class = "d-flex align-items-start flex-column m-3">
-                        <h3 class="boxTextColor">{{name}}</h3>
-                        <p class="boxTextColor"> {{description}}</p>
+                        <h3 class="boxTextColor">{{project.name}}</h3>
+                        <p class="boxTextColor"> {{project.description}}</p>
                     </div>
                     <!-- bottom of sub-box -->
                     <div class = "d-flex justify-content-between m-3">
@@ -62,11 +69,11 @@
         <div class="col-2"> <!-- Right Box -->
         <div class = "border">
             <div style="text-align: center;">
-                <h4 class="boxTextColor">{{name}}</h4>
+                <h4 class="boxTextColor">{{project.name}}</h4>
             </div>
             <div style="text-align: center; margin-top: 10%;">
                 <p class="boxTextColor">
-                {{description}}
+                {{project.description}}
                 </p>
             </div>
         </div>

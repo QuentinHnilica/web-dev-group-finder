@@ -2,5 +2,21 @@
     {
         "GroupId": 1,
         "Tech": "Node"
+    },
+    {
+        "GroupId": 1,
+        "Tech": "Javascript"
+    },
+    {
+        "GroupId": 1,
+        "Tech": "MySql"
+    },
+    {
+        "GroupId": 2,
+        "Tech": "Node"
+    },
+    {
+        "GroupId": 2,
+        "Tech": "MySql"
     }
 ]
