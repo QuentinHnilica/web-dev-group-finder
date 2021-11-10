@@ -1,7 +1,7 @@
 const { DataTypes, Model} = require('sequelize');
 const sequelize = require('../config/connection');
 
-class SocialLink extends Model {}
+class SocialLink extends Model {};
 
 SocialLink.init(
     {
@@ -21,5 +21,6 @@ SocialLink.init(
         underscored: true,
         modelName: 'SocialLink',
     }
-)
+);
+
 module.exports = SocialLink;
