@@ -209,5 +209,28 @@ router.get('/getReqs/:id', async(req, res) => {
     }
 })
 
+router.delete('/reject', async(req, res) => {
+    try{
+        const deleted = await JoinRequest.destroy({
+            where:{
+                GroupId: req.body.GroupId,
+                message: req.body.message
+            }
+        })
+        res.status(200).json(deleted)
+    }catch{
+        res.status(400).json(err)
+    }
+})
+
+router.post('/accept', async(req, res) => {
+    try{
+        const newRequest = await GroupUsers.create(req.body)
+        res.status(200).json(newRequest)
+    }catch{
+        res.status(400).json(err)
+    }
+})
+
 
 module.exports = router;

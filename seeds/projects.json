@@ -4,57 +4,7 @@
         "id": 1,
         "difficulty": 1,
         "description": "This is just a test",
-        "adminID": 1234
-    },
-
-    {
-        "name": "Test Group",
-        "id": 2,
-        "difficulty": 3,
-        "description": "I can't believe i did this",
-        "adminID": 1234
-    },
-    {
-        "name": "Test Group",
-        "id": 3,
-        "difficulty": 3,
-        "description": "I can't believe i did this",
-        "adminID": 1234
-    },
-    {
-        "name": "Test Group",
-        "id": 4,
-        "difficulty": 3,
-        "description": "I can't believe i did this",
-        "adminID": 1234
-    },
-    {
-        "name": "Test Group",
-        "id": 5,
-        "difficulty": 3,
-        "description": "I can't believe i did this",
-        "adminID": 1234
-    },
-    {
-        "name": "Test Group",
-        "id": 6,
-        "difficulty": 3,
-        "description": "This should be the first post on the second page",
-        "adminID": 1234
-    },
-    {
-        "name": "Test Group",
-        "id": 7,
-        "difficulty": 3,
-        "description": "Yessir we did it",
-        "adminID": 1234
-    },
-    {
-        "name": "Test Group",
-        "id": 8,
-        "difficulty": 3,
-        "description": "This is the last",
-        "adminID": 1234
+        "adminID": 1
     }
 
 ]

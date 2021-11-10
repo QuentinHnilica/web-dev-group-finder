@@ -15,8 +15,8 @@ Posts.init(
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        UsersID: {
-            type: DataTypes.INTEGER,
+        username: {
+            type: DataTypes.STRING,
             allowNull: false
         },
         PostContent:{

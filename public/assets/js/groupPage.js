@@ -3,6 +3,7 @@ var part = path.split('/').pop(); //groupNumber
 let groupAdmin 
 let projectInfo  = []
 let thisUser
+let thisUserName
 
 const xMod = document.getElementById('xClose')
 const botClose = document.getElementById('botClose')
@@ -42,7 +43,7 @@ const getGroupPosts = async () =>{
         response.json().then(function(data){
             for (let i = 0; i < data.length; i++){
                 let postContent = data[i].PostContent
-                let postUser = data[i].UsersID
+                let postUser = data[i].username
                 let PostHTMl = 
                 `<section class = "border m-4" style="width: 80%;">
                 <div class = "d-flex align-items-start flex-column m-3">          
@@ -231,6 +232,7 @@ getCurrUser = async()=>{
         response.json().then(function(data){
             if (data != null){ //user is logged in
                 thisUser = data.id
+                thisUserName = data.username
                 if (data.id == groupAdmin){
                     const adminButton = `<button class = "btn bodyButtons" onclick="editGroup()">Edit Group</button>`
                     const checkRequests = `<button class = "btn bodyButtons" onclick="openRequests()">Check Requests</button>`
@@ -240,8 +242,15 @@ getCurrUser = async()=>{
                 else{
                     for (let i = 0; i < projectInfo.length; i++){
                         if (projectInfo[i].disc == "groupUsers"){
-                            if (projectInfo[i].includes(data.username)){
-                                inGroup = true
+                            const thisProj = projectInfo[i]
+                            for (let z = 0; z < thisProj.length; z++){
+                                if (thisProj[z].Username == thisUserName){
+                                    inGroup = true
+                                }
+                            }
+
+                            if (inGroup){
+                                
                             }
                             else{
                                 document.getElementById('insertLink').innerHTML = ""
@@ -559,7 +568,7 @@ const postTime = async (e) =>{
     console.log()
     let newPost = {
         GroupId: part,
-        UsersID: thisUser,
+        username: thisUserName,
         PostContent: $('#yourPost')[0].value
 
     }
@@ -578,14 +587,45 @@ const postTime = async (e) =>{
 }
 
 const acceptUser = async(e)=>{
-    console.log('accept')
+    console.log()
+    let userInfo = {
+        GroupId: part,
+        Username: e[0].parentNode.children[0].innerText
+    }
+    const response = await fetch('/projects/accept', {
+        method: "POST",
+        body: JSON.stringify(userInfo),
+        headers: { 'Content-Type': 'application/json' },
+    })
+    if (response.ok){
+        console.log("user accepted")
+    }
+    else{
+        alert(response.statusText)
+    }
+    window.location.reload()
 }
 
 const declineUser = async(e)=>{
-    
+
+    let postDele = {
+        GroupId: part,
+        message: e[0].parentNode.children[3].innerText
+    }
+    console.log(postDele)
     const response = await fetch('/projects/reject', {
-        method: "DELETE"
+        method: "DELETE",
+        body: JSON.stringify(postDele),
+        headers: { 'Content-Type': 'application/json' },
     })
+
+    if (response.ok){
+        console.log("Deleted")
+    }
+    else{
+        alert(response.statusText)
+    }
+    window.location.reload()
 }
 
 const openRequests = async () =>{
@@ -668,7 +708,7 @@ const submitJoinReq = async () =>{
         if (searchVar != null){
             const newPost = {
                 GroupId: part,
-                Username: thisUser,
+                Username: thisUserName,
                 requestedTech: searchVar,
                 portfolio: document.getElementById('portfolioLink').value,
                 message: document.getElementById('ReqComment').value
