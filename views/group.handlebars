@@ -5,11 +5,9 @@
             <div style="text-align: center;">
                 <h3 class = "boxTextColor">Users</h3>
                 </div>
-                <div class="list-group " id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab">User1</a>
-                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab">User2</a>
-                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab">User3</a>
-                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab">User4</a>
+                <div class="list-group " id="insertUsers" role="tablist">
+                
+                
                 </div>
             </div>
             <!-- Skills Box -->
@@ -17,10 +15,9 @@
                 <div style="text-align: center;">
                 <h3 class = "boxTextColor">Skills In Use</h3>
                 </div>
-                <div class="list-group" id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab">HTML</a>
-                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab">CSS</a>
-                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab">JS</a>
+                <div class="list-group" id="insertTechInUse" role="tablist">
+                
+
                 </div>
                 </div>
         
@@ -29,9 +26,9 @@
                 <div style="text-align: center;">
                 <h3 class = "boxTextColor">Skills Needed</h3>
                 </div>
-                <div class="list-group" id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab">Node</a>
-                <a class="list-group-item list-group-item-action boxTextColor midBg" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab">MySql</a>
+                <div class="list-group" id="insertTechNeeded" role="tablist">
+                
+
                 </div>
             </div>
         </div>
@@ -40,19 +37,10 @@
         <div class="col-8"> <!-- Main Box-->
         <div class="groupMainBorder">
             <div class = "d-flex flex-column align-items-center" id='postArea'>
-                <div class="row">
-                    <div class="col-3">
-                        <a href="#">groupLink</a>
-                    </div>
-                    <div class="col-3">
-                        <a href="#">groupLink</a>
-                    </div>
-                    <div class="col-3">
-                        <a href="#">groupLink</a>
-                    </div>
-                    <div class="col-3">
-                        <a href="#">groupLink</a>
-                    </div>
+                <div class="row" id="insertLink">
+                    
+                    
+                    
                 </div>
                 <section class = "border m-4" style="width: 80%;">
                     <div class = "d-flex align-items-start flex-column m-3">          
@@ -78,11 +66,11 @@
         <div class="col-2"> <!-- Right Box -->
         <div class = "border">
             <div style="text-align: center;">
-                <h4 class="boxTextColor">{{name}}</h4>
+                <h4 class="boxTextColor" id="groupName"></h4>
             </div>
             <div style="text-align: center; margin-top: 10%;">
-                <p class="boxTextColor">
-                {{description}}
+                <p class="boxTextColor" id="groupDesc">
+                
                 </p>
             </div>
         </div>

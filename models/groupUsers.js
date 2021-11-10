@@ -9,8 +9,8 @@ GroupUsers.init(
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        UserId: {
-            type: DataTypes.INTEGER,
+        Username: {
+            type: DataTypes.STRING,
             allowNull: false
         }
     },
