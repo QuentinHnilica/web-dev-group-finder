@@ -39,22 +39,38 @@
 
         <div class="col-8"> <!-- Main Box-->
         <div class="groupMainBorder">
-            <div class = "d-flex flex-column align-items-center">
-                <section class = "border m-4">
-                    <div class = "d-flex align-items-start flex-column m-3">
-                        <h3 class="boxTextColor">{{name}}</h3>
-                        <p class="boxTextColor"> {{description}}</p>
+            <div class = "d-flex flex-column align-items-center" id='postArea'>
+                <div class="row">
+                    <div class="col-3">
+                        <a href="#">groupLink</a>
                     </div>
-                    <!-- bottom of sub-box -->
-                    <div class = "d-flex justify-content-between m-3">
-                        <div>
-                            <h6 class="boxTextColor">Needs:</h6>
-                            <!-- iconHolder -->
-                            <a></a>
+                    <div class="col-3">
+                        <a href="#">groupLink</a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#">groupLink</a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#">groupLink</a>
+                    </div>
+                </div>
+                <section class = "border m-4" style="width: 80%;">
+                    <div class = "d-flex align-items-start flex-column m-3">          
+                    </div>
+                    <div class="form-floating" style=" width: 80%; margin: auto;">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px;"></textarea>
+                            <label for="floatingTextarea2" style="margin: auto;">Comments</label>
                         </div>
-                        <button class = "btn bodyButtons">View Group</button>
+                    <!-- bottom of sub-box -->
+
+                    <div class = "d-flex justify-content-between m-3">
+                        <div style="justify-content: flex-end; margin: auto;">
+                            <button class = "btn bodyButtons">View Group</button>
+                        </div>
                     </div>
                 </section>
+
+                
             </div>
         </div>
         </div>
@@ -73,3 +89,5 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="/assets/js/groupPage.js"></script>

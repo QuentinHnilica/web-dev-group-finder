@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Project, techNeeded } = require('../../models');
+const { Project, techNeeded, Posts } = require('../../models');
 
 //matches /api/projects/
 router.get('/', async(req, res) =>{
@@ -19,5 +19,18 @@ router.get('/search', async(req, res) =>{
         res.status(400).json(err)
     };
 });
+
+router.get('/posts/id:', async(req, res) =>{
+    try{
+        const posts = await Posts.findAll({
+            where: {
+                id: req.params.GroupId
+            }
+        });
+        res.status(200).json(posts)
+    }catch(err){
+        res.status(400).json(err)
+    }
+})
 
 module.exports = router;

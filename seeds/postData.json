@@ -2,7 +2,13 @@
     {
         "PostId": 1,
         "GroupId": 1,
+        "UsersID": 1,
+        "PostContent": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,"
+    },
+    {
+        "PostId": 2,
+        "GroupId": 1,
         "UsersID": 2,
-        "PostContent": "This is my first test post."
+        "PostContent": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia volupta"
     }
 ]
