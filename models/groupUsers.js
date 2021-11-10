@@ -1,7 +1,7 @@
 const { DataTypes, Model} = require('sequelize');
 const sequelize = require('../config/connection');
 
-class GroupUsers extends Model {}
+class GroupUsers extends Model {};
 
 GroupUsers.init(
     {
@@ -21,5 +21,6 @@ GroupUsers.init(
         underscored: true,
         modelName: 'GroupUsers',
     }
-)
+);
+
 module.exports = GroupUsers;

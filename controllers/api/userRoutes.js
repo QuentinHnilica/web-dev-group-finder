@@ -4,6 +4,7 @@ const { User } = require('../../models');
 //matches /api/users/
 router.post('/', async (req, res) => {
   try{
+
     const userData = await User.create(req.body);
 
     req.session.save(() => {
@@ -15,12 +16,13 @@ router.post('/', async (req, res) => {
 
   }catch(err) {
     res.status(400).json(err);
-  }
+  };
 });
 
 // matches /api/users/login
 router.post('/login', async (req, res) => {
   try{
+    
     const userData = await User.findOne({ where: { username: req.body.userName } });
     
     if (!userData) {
@@ -28,7 +30,7 @@ router.post('/login', async (req, res) => {
             .status(400)
             .json({ message: 'Incorrect email or password, please try again'});
         return;
-    }
+    };
   
     const validPassword = await userData.checkPassword(req.body.password);
 
@@ -37,7 +39,7 @@ router.post('/login', async (req, res) => {
         .status(400)
         .json({ message: 'Incorrect email or password, please try again'});
       return;
-    }
+    };
     
     req.session.save(() => {
         req.session.user_id = userData.id;
@@ -46,7 +48,7 @@ router.post('/login', async (req, res) => {
       });
   } catch (err) {
       res.status(404).json(err);
-  }
+  };
 });
 
 // matches /api/users/logout
@@ -57,7 +59,7 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
-  }
+  };
 });
 
 module.exports = router;

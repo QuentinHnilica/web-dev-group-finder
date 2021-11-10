@@ -1,7 +1,7 @@
 const { DataTypes, Model} = require('sequelize');
 const sequelize = require('../config/connection');
 
-class TechNeeded extends Model {}
+class TechNeeded extends Model {};
 
 TechNeeded.init(
     {
@@ -21,5 +21,6 @@ TechNeeded.init(
         underscored: true,
         modelName: 'TechNeeded',
     }
-)
+);
+
 module.exports = TechNeeded;
