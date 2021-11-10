@@ -5,7 +5,11 @@
     },
     {
         "GroupId": 1,
-        "Tech": "JS"
+        "Tech": "Javascript"
+    },
+    {
+        "GroupId": 1,
+        "Tech": "MySql"
     },
     {
         "GroupId": 2,

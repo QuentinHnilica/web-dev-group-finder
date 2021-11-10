@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Project } = require("../models");
+const { User, Project, GroupUsers, TechInUse, TechNeeded } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
@@ -32,14 +32,36 @@ router.get("login", (req, res) => {
 
 
 router.get('/projects/:id', async (req, res) => {
-
-    console.log(req.params.id);
+    const { id } = req.params;
     try{
         const projectData = await Project.findOne({
             where: {
-                id: req.params.id
+                id
             }
         });
+
+        const usersData = await GroupUsers.findAll({
+           where: {
+               group_id: id
+           }
+        });
+        
+        const techInUseData = await TechInUse.findAll({
+            where: {
+                group_id: id
+            }
+        });
+
+        // const techNeededData = await TechNeeded.findAll({
+        //     where: {
+        //         group_id: id
+        //     }
+        // });
+
+        const users = usersData.map((user) => user.get({ plain: true }));
+        const techsInUse = techInUseData.map((techInUse) => techInUse.get({ plain: true }));
+        // const techsNeeded = techNeededData.map((techNeeded) => techNeeded.get({ plain: true }));
+        // console.log(techsNeeded);
 
         const project = projectData.get({ plain: true });
         if (!projectData) {
@@ -47,7 +69,7 @@ router.get('/projects/:id', async (req, res) => {
             return;
         };
 
-        res.render('group', project);
+        res.render('group', { project, users, techsInUse });
     }catch(err) {
         res.status(500).json(err);
     }
