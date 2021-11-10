@@ -9,7 +9,7 @@ let groupTableTech = []
 let finalGroupResult = []
 
 function viewGroup(e){
-    console.log(e[0].id)
+    window.location = window.location + "projects/" + e[0].id
 }
 
 function addBottomBar(groupLength){
