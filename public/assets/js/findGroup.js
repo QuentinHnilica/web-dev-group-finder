@@ -20,7 +20,6 @@ const link4Name = document.getElementById('link4Name')
 const link4Link = document.getElementById('link4Link')
 const groupTechNeed = document.getElementById('groupTechNeed')
 
-
 let searchVar
 let difficulty
 let groupTableTech = []
@@ -342,8 +341,9 @@ getUsersGroup = async()=>{
     })
     if (response.ok){
         response.json().then(function(data){
+            console.log(data)
             if (data.length != 0){
-                let 
+
                 for (let i = 0; i < data.length; i++){
                     let theGroup = `<a class="list-group-item list-group-item-action boxTextColor midBg" id="list-home-list" data-bs-toggle="list" onclick="goToGroup()" role="tab">Create New Group</a>`
                 $('#yourGroups').append(theGroup)
@@ -390,8 +390,34 @@ function makeNewGroup(){
     document.getElementById('createGroup').style = "display: block;"
 }
 
-function makeGroup(){
-    
+const addOtherInfo = async() =>{
+
+}
+
+const makeGroup = async() =>{
+    if (groupName.value != '' && groupDisc.value != ''){
+        let newProject ={
+            name: groupName.value,
+            difficulty: groupDifficulty.value,
+            description: groupDisc.value,
+            adminID: currUser.id
+        }
+        const response = await fetch('/api/projects/newGroup',{
+            method: "POST",
+            body: JSON.stringify(newProject),
+            headers: { 'Content-Type': 'application/json' },
+        })
+
+        if (response.ok){
+            addOtherInfo()
+        }
+        else{
+            alert(response.statusText)
+        }
+    }
+    else{
+
+    }
 }
 
 function closeMod(){

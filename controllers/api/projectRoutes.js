@@ -33,4 +33,15 @@ router.get('/posts/id:', async(req, res) =>{
     }
 })
 
+router.post('/newGroup', async (req, res) => {
+    try{
+  
+        const userData = await Project.create(req.body);
+        res.status(200).json(userData);
+  
+    }catch(err) {
+      res.status(400).json(err);
+    };
+  });
+
 module.exports = router;
