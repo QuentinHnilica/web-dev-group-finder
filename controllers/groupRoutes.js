@@ -28,6 +28,19 @@ router.get('/groupInfo/:id', async(req, res) =>{
     }
 })
 
+router.get('/groupInfo2/:id', async(req, res) =>{
+    try{
+        const posts = await Project.findOne({
+            where: {
+                adminID: req.params.id
+            }
+        });
+        res.status(200).json(posts)
+    }catch(err){
+        res.status(400).json(err)
+    }
+})
+
 router.get('/groupUsers/:id', async(req, res) =>{
     try{
         const posts = await GroupUsers.findAll({

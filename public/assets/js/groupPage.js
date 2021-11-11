@@ -700,7 +700,6 @@ function openJoinReq(){
 const submitJoinReq = async () =>{
     if (document.getElementById('ReqComment').value != ""){
         let searchVar
-        console.log(document.getElementById('requestedTech'))
         for (let i = 0; i < document.querySelectorAll('#theBox').length; i++){
             if ( document.querySelectorAll('#theBox')[i].checked == true){
                 

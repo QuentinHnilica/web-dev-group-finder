@@ -27,6 +27,8 @@ let finalGroupResult = []
 
 let currUser
 
+let newGroupID
+
 function viewGroup(e){
     window.location = window.location + "projects/" + e[0].id
 }
@@ -376,6 +378,58 @@ function makeNewGroup(){
 
 const addOtherInfo = async() =>{
     
+    const row1 = groupTechNeed.children[0]
+    const row2 = groupTechNeed.children[1]
+    let updatedTechNeeded = []
+    
+    for (let i = 0; i < row1.children.length; i++){
+        if (row1.children[i].children[1].checked){
+            const newNeeded = {
+                GroupId: newGroupID,
+                Tech: row1.children[i].children[1].id
+            }
+            updatedTechNeeded.push(newNeeded)
+        }
+    }
+
+    for (let i = 0; i < row2.children.length; i++){
+        if (row2.children[i].children[1].checked){
+            const newNeeded = {
+                GroupId: newGroupID,
+                Tech: row2.children[i].children[1].id
+            }
+            updatedTechNeeded.push(newNeeded)
+        }
+    }
+
+    console.log(updatedTechNeeded)
+
+    for (let i = 0; i < updatedTechNeeded.length; i++){
+        const response = await fetch('/projects/updateNeed/' + newGroupID,{
+            method: "POST",
+            body: JSON.stringify(updatedTechNeeded[i]),
+            headers: { 'Content-Type': 'application/json' },
+        })
+    }
+
+
+
+    window.location.reload()
+}
+
+const getNewGroupID = async() =>{
+    const response = await fetch('/projects/groupInfo2/' + currUser.id,{
+        method: "GET"
+    })
+    if (response.ok){
+        response.json().then(function(data){
+            newGroupID = data.id
+            addOtherInfo()
+        })
+    }
+    else{
+        alert(response.statusText)
+    }
 }
 
 const makeGroup = async() =>{
@@ -393,12 +447,11 @@ const makeGroup = async() =>{
         })
 
         if (response.ok){
-            addOtherInfo()
+            getNewGroupID()
         }
         else{
             alert(response.statusText)
         }
-        window.location.reload()
     }
     else{
 
