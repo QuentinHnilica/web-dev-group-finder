@@ -30,7 +30,7 @@ let currUser
 let newGroupID
 
 function viewGroup(e){
-    window.location = window.location + "projects/" + e[0].id
+    window.location = window.location + "projects/" + e[0].id //this is each view group button, takes you to a unique group
 }
 
 function addBottomBar(groupLength){
@@ -69,7 +69,7 @@ const getTech = async(thisID, groupDesc, groupDiff, groupName, groupLength, inde
 
                 }
             }
-            const groupPost = 
+            const groupPost =  //this is the group that shows up
             `<div class = "d-flex flex-column align-items-center">
             <section class = "border m-4" style="width: 90%;">
             <div class = "d-flex align-items-start flex-column m-3">
@@ -119,7 +119,7 @@ const finalGroupHandler = async(currPage) =>{
     if (resProj.ok){
         resProj.json().then(function(proj){
             for (let i = 0; i < proj.length; i++){
-                groupTableTech.forEach(element => {
+                groupTableTech.forEach(element => { //shows the searched group with difficulty 1 higher or lower than you searched
                     if (element.GroupId == proj[i].id){
                         if (proj[i].difficulty == difficulty){
                             finalGroupResult.push(proj[i])
@@ -157,7 +157,7 @@ const finalGroupHandler = async(currPage) =>{
                     let groupDiff = finalGroupResult[index].difficulty
                     let groupName = finalGroupResult[index].name
                     let GroupId = finalGroupResult[index].id
-                const groupPost = 
+                const groupPost = //group post from your search
                 `<div class = "d-flex flex-column align-items-center">
                 <section class = "border m-4" style="width: 90%;">
                 <div class = "d-flex align-items-start flex-column m-3">
@@ -358,7 +358,7 @@ getCurrUser = async()=>{
                 getUsersGroup()
             }
             else{ //user is not logged in
-                //Put a sign Up button here
+               
             }
         })
 
@@ -458,7 +458,7 @@ const makeGroup = async() =>{
     }
 }
 
-function closeMod(){
+function closeMod(){ //closes make group 
     document.getElementById('createGroup').style = "display: none;"
 }
 

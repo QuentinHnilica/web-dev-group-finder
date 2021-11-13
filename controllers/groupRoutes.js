@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Project, Posts, GroupUsers, SocialLink, techNeeded, TechInUse, JoinRequest } = require("../models");
 
 
-router.get('/posts/:id', async(req, res) =>{
+router.get('/posts/:id', async(req, res) =>{ 
     try{
         const posts = await Posts.findAll({
             where: {
@@ -15,7 +15,7 @@ router.get('/posts/:id', async(req, res) =>{
     }
 })
 
-router.get('/groupInfo/:id', async(req, res) =>{
+router.get('/groupInfo/:id', async(req, res) =>{ 
     try{
         const posts = await Project.findOne({
             where: {

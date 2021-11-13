@@ -35,7 +35,7 @@ const submitReq = document.getElementById('submitReq')
 
 let inGroup = false
 
-const getGroupPosts = async () =>{
+const getGroupPosts = async () =>{ //retreives the blog posts for this group
     const response = await fetch('/projects/posts/' + part,{
         method: "GET"
     })
@@ -84,7 +84,7 @@ const getGroupInfo = async () =>{
     }
 }
 
-const getSocialLinks = async () =>{
+const getSocialLinks = async () =>{ //retrevies current group links
     const response = await fetch('/projects/social/' + part,{
         method: "GET"
     })
@@ -93,7 +93,7 @@ const getSocialLinks = async () =>{
             var newProp = data
             newProp.disc = 'links'
             projectInfo.push(newProp)
-            switch(data.length){
+            switch(data.length){ //switch is for the div class col so the spacing is correct based on amt of links
                 case 1:
                     let linkName = data[0].name
                     let actualLink = data[0].SocialLink
@@ -153,7 +153,7 @@ const getSocialLinks = async () =>{
 }
 
 
-const getUsers = async () =>{
+const getUsers = async () =>{ //this gets current group users
     const response = await fetch('/projects/groupUsers/' + part,{
         method: "GET"
     })
@@ -197,7 +197,7 @@ const getTechInUse = async () =>{
     }
 }
 
-const getTechNeeded = async () =>{
+const getTechNeeded = async () =>{ //gets curr tech needed for the project
     const response = await fetch('/projects/needed/' + part,{
         method: "GET"
     })
@@ -223,7 +223,7 @@ function editGroup(){
 }
 
 
-getCurrUser = async()=>{
+getCurrUser = async()=>{ //gets info for the user who is currently viewing the page
     console.log(projectInfo)
     const response = await fetch('/projects/user',{
         method: "GET"
@@ -291,7 +291,7 @@ getTechNeeded()
 
 getCurrUser()
 
-function editGroup(){
+function editGroup(){ //displays all current project info as placeholders for the edit group
 
     console.log(projectInfo)
 
@@ -343,19 +343,19 @@ function editGroup(){
     document.getElementById('createGroup').style = "display: block;"
 }
 
-function closeMod(){
+function closeMod(){ //closes create group modal
     document.getElementById('createGroup').style = "display: none;"
 }
 
-function closeReq(){
+function closeReq(){ //closes the admins check join requests modal
     document.getElementById('checkReq').style = "display: none;"
 }
 
-function closeJoinReq(){
+function closeJoinReq(){ //closes user request to join modal
     document.getElementById('joinReqMod').style = "display: none;"
 }
 
-const updateGroupLinks = async () =>{
+const updateGroupLinks = async () =>{ //updates group links, end of update line
     let updatedGroupLinks = []
     let link1 = {GroupId: part}
     let link2 = {GroupId: part}
@@ -447,7 +447,7 @@ const updateGroupLinks = async () =>{
     window.location.reload()
 }
 
-const destroyLinks = async () => {
+const destroyLinks = async () => { //destroys exisiting links
     const response = await fetch('/projects/removeLinks/' + part,{
         method: "DELETE"
     })
@@ -458,10 +458,10 @@ const destroyLinks = async () => {
         alert(response.statusText)
     }
 
-    updateGroupLinks()
+    updateGroupLinks() //save links, end update method
 }
 
-const updateGroupInfo = async () =>{
+const updateGroupInfo = async () =>{ //resaves group to add updated info
     let updatedGroupInfo = {}
 
     if (groupName2.value == ''){
@@ -499,10 +499,10 @@ const updateGroupInfo = async () =>{
         alert(response.statusText)
     }
 
-    destroyLinks()
+    destroyLinks() //destroys exsisiting links
 }
 
-const deleteGroup = async () => {
+const deleteGroup = async () => { //deletes current group before re saving
     const response = await fetch('/projects/removeGroup/' + part,{
         method: "DELETE"
     })
@@ -515,7 +515,7 @@ const deleteGroup = async () => {
     updateGroupInfo()
 }
 
-const saveLinks = async () =>{
+const saveLinks = async () =>{ //checks boxes for tech needed
     const row1 = groupTechNeed.children[0]
     const row2 = groupTechNeed.children[1]
     let updatedTechNeeded = []
@@ -540,8 +540,6 @@ const saveLinks = async () =>{
         }
     }
 
-    console.log(updatedTechNeeded)
-
     for (let i = 0; i < updatedTechNeeded.length; i++){
         const response = await fetch('/projects/updateNeed/' + part,{
             method: "POST",
@@ -551,10 +549,10 @@ const saveLinks = async () =>{
     }
     
 
-    deleteGroup()
+    deleteGroup() //next step deleted the entire group
 }
 
-const saveChanges = async () =>{
+const saveChanges = async () =>{ //start of update group, starts with removing the tech needed info
     const response = await fetch('/projects/removeTech/' + part,{
         method: "DELETE"
     })
@@ -564,10 +562,10 @@ const saveChanges = async () =>{
     else{
         alert(response.statusText)
     }
-    saveLinks()
+    saveLinks() //saves tech needed
 }
 
-const postTime = async (e) =>{
+const postTime = async (e) =>{ //creates new blog post
     console.log()
     let newPost = {
         GroupId: part,
@@ -589,7 +587,7 @@ const postTime = async (e) =>{
     window.location.reload()
 }
 
-const acceptUser = async(e)=>{
+const acceptUser = async(e)=>{ //adds user to group db
     console.log()
     let userInfo = {
         GroupId: part,
@@ -609,7 +607,7 @@ const acceptUser = async(e)=>{
     window.location.reload()
 }
 
-const declineUser = async(e)=>{
+const declineUser = async(e)=>{ //deletes user join request without adding them to the user db
 
     let postDele = {
         GroupId: part,
@@ -631,7 +629,7 @@ const declineUser = async(e)=>{
     window.location.reload()
 }
 
-const openRequests = async () =>{
+const openRequests = async () =>{ //shows admin the user's request to join group
 
     const response = await fetch('/projects/getReqs/' + part, {
         method: "GET"
